@@ -23,6 +23,7 @@ Year Renovation - Year of the house's last renovation
 Zip code  
 Latitude coordinate  
 Longitude coordinate
+
 ## Data set 2: King county Sheriff's Office incident dataset from 2010 to 2016
 * Data size:  
 56032 observations with 6 features 
