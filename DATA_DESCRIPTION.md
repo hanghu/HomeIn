@@ -1,11 +1,11 @@
 
-# Two data set:
+# Data set:
 
-1. Data set 1: House sale prices for King county sold between May 2014 and May 2015
-* Data size: 
-	21613 observations with 18 house features
-* Column:
-	Date - Date of the home sold
+## Data set 1: House sale prices for King county sold between May 2014 and May 2015
+* Data size:  
+21613 observations with 18 house features
+* Column:  
+Date - Date of the home sold
 	Price - Price of the home sold
 	Number of Bedrooms
 	Number of Bathrooms
