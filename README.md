@@ -5,7 +5,7 @@ The Tool will use visualization technology to allow users to pinpoint areas and 
 
 Project Directory
 
-Data: All data used in analyses is accesible from the data folder.
+Data: All data used in analyses is accesible from the data folder.  The data is described in full in the DATA_DESCRIPTION.md document.
 
 UsercaseExplication.md: Use cases and scientific questions answered by the project.
 
