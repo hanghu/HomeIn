@@ -43,7 +43,7 @@ if __name__ == "__main__":
     """
 
     # Load King County house price data
-    house_data = pd.read_csv("./Data/kc_house_data.csv",
+    house_data = pd.read_csv("../../Data/kc_house_data.csv",
                              parse_dates=['date'])
     house_data['zipcode'] = house_data['zipcode'].astype(str)
 
@@ -55,6 +55,6 @@ if __name__ == "__main__":
     zipcode_data.reset_index(inplace=True)
 
     # Path for GeoJSON zipcode data
-    zipcodepath = './Data/zipcode_king_county.geojson'
+    zipcodepath = '../../Data/zipcode_king_county.geojson'
     show_zipcode_map(zipcodepath, zipcode_data, 'count')
     show_zipcode_map(zipcodepath, zipcode_data, 'price')
