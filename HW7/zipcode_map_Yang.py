@@ -8,6 +8,7 @@ Author: Yang Jiang
 import pandas as pd
 import folium
 
+
 def show_zipcode_map(zipcode_path, data, col):
     """
     Interact zipcode GeoJSON data with other data set (house price or crime)
@@ -25,13 +26,13 @@ def show_zipcode_map(zipcode_path, data, col):
         The colomn name in dataset to bound zipcode with
     """
     # Generate original map
-    zipcode = folium.Map(location=[data['lat'].mean(), 
+    zipcode = folium.Map(location=[data['lat'].mean(),
                                    data['long'].mean()], zoom_start=10)
 
     # Add zipcode map layer to orignial map
-    zipcode.choropleth(geo_path=zipcode_path, data=data, 
-                       columns=['zipcode', col], 
-                       key_on='feature.properties.ZCTA5CE10', 
+    zipcode.choropleth(geo_path=zipcode_path, data=data,
+                       columns=['zipcode', col],
+                       key_on='feature.properties.ZCTA5CE10',
                        fill_color='OrRd', fill_opacity=0.5, line_opacity=0.2)
     zipcode.save('zipcode_' + col + '.html')
     return zipcode
@@ -43,7 +44,7 @@ if __name__ == "__main__":
     """
 
     # Load King County house price data
-    house_data = pd.read_csv("../Data/kc_house_data.csv", 
+    house_data = pd.read_csv("../Data/kc_house_data.csv",
                              parse_dates=['date'])
     house_data['zipcode'] = house_data['zipcode'].astype(str)
 
