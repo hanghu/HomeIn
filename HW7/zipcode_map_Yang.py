@@ -24,6 +24,11 @@ def show_zipcode_map(zipcode_path, data, col):
 
     col : string
         The column name in dataset to bound zipcode with
+        
+    Return
+    ----------
+    Save map as .html file
+    return folium map
     """
     # Generate original map
     zipcode = folium.Map(location=[data['lat'].mean(),
@@ -57,7 +62,7 @@ if __name__ == "__main__":
 
     # Path for GeoJSON zipcode data
     zipcodepath = '../Data/zipcode_king_county.geojson'
-    # Generate a layer of zipcode map with house sold
+    # Generate a layer of zipcode map with house sold and save to html file
     show_zipcode_map(zipcodepath, zipcode_data, 'count')
-    # Generate a layer of zipcode map with average house price
+    # Generate a layer of zipcode map with average house price and save to html file
     show_zipcode_map(zipcodepath, zipcode_data, 'price')
