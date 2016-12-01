@@ -57,5 +57,7 @@ if __name__ == "__main__":
 
     # Path for GeoJSON zipcode data
     zipcodepath = '../Data/zipcode_king_county.geojson'
+    # Generate a layer of zipcode map with house sold
     show_zipcode_map(zipcodepath, zipcode_data, 'count')
+    # Generate a layer of zipcode map with average house price
     show_zipcode_map(zipcodepath, zipcode_data, 'price')
