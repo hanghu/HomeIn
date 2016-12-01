@@ -23,7 +23,7 @@ def show_zipcode_map(zipcode_path, data, col):
         The other data set to interact with (house price or crime)
 
     col : string
-        The colomn name in dataset to bound zipcode with
+        The column name in dataset to bound zipcode with
     """
     # Generate original map
     zipcode = folium.Map(location=[data['lat'].mean(),
@@ -40,7 +40,7 @@ def show_zipcode_map(zipcode_path, data, col):
 
 if __name__ == "__main__":
     """
-    Example of using show_zipcode_map funciton
+    Example of using show_zipcode_map function
     """
 
     # Load King County house price data
