@@ -12,7 +12,8 @@ from geopy.distance import vincenty
 def crime_count(house_gps, crime_gps, crime_type,
                 cutoff=1.0, crime_plot=False, house_name='the house'):
     """
-    Count and return numbers of crimes (int) reports around a specifc house gps corrdinates
+    Count and return a int of numbers of crimes (int) reports and a dictionary of
+    grouped crime types, around a specifc house gps corrdinates
     within the cutoff distance. the crime information are also grouped and
     plotted as bar plot.
 
@@ -48,13 +49,14 @@ def crime_count(house_gps, crime_gps, crime_type,
         fig, ax = plt.subplots(figsize=(12, 6))
         ax.bar(range(len(counted_type)), counted_type.values(), align='center')
         plt.xticks(range(len(counted_type)), counted_type.keys())
+        ax.figure.autofmt_xdate()
         title = 'Crime distribution around '+house_name+' within the range of '+str(cutoff)+' miles'
         plt.suptitle(title)
         plt.savefig('crime distribution')
     else:
         pass
 
-    return (count, dict(counted_type))
+    return (count, counted_type)
 
 
 if __name__ == "__main__":

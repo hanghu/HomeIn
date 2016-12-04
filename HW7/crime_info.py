@@ -48,6 +48,7 @@ def crime_count(house_gps, crime_gps, crime_type,
         fig, ax = plt.subplots(figsize=(12, 6))
         ax.bar(range(len(counted_type)), counted_type.values(), align='center')
         plt.xticks(range(len(counted_type)), counted_type.keys())
+        ax.figure.autofmt_xdate()
         title = 'Crime distribution around '+house_name+' within the range of '+str(cutoff)+' miles'
         plt.suptitle(title)
         plt.savefig('crime distribution')
