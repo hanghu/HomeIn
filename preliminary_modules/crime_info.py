@@ -1,21 +1,28 @@
+"""
+This module is intended to return and output the crime information around
+a given house gps
+"""
+
+from collections import Counter
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from collections import Counter
 from geopy.distance import vincenty
 
 def crime_count(house_gps, crime_gps, crime_type,
-                    cutoff=2.0, house_name='the house'):
+                cutoff=1.0, crime_plot=False, house_name='the house'):
     """
-    Count return numbers of crime reports around a specifc house gps corrdinates
-        within the cutoff distance.
+    Count and return numbers of crimes (int) reports around a specifc house gps corrdinates
+    within the cutoff distance. the crime information are also grouped and
+    plotted as bar plot.
 
     Parameters
     ----------
     house_gps: list , default None, Latitude and Longtitude of the house
     crime_gps: tuple or list, default none, Latitudes and Longtitudes of the crime
     crime_type: list of strings, contains the types of crimes
-    cutoff: float, default 2.0, set up the rang for counting
+    cutoff: float, default 1.0 mile, set up the range for counting
+    crime_plot:
     house_name: string, default 'the house', contains the name of input house.
     """
 
@@ -36,23 +43,29 @@ def crime_count(house_gps, crime_gps, crime_type,
 
     #groupby the different types of crime
     counted_type = Counter(count_type)
-    plt.style.use('ggplot')
-    fig, ax = plt.subplots(figsize=(12,6))
-    ax.bar(range(len(counted_type)), counted_type.values(), align='center')
-    plt.xticks(range(len(counted_type)), counted_type.keys())
-    title = 'Crime distribution around '+house_name+' within the range of '+str(cutoff)+' miles'
-    plt.suptitle(title)
-    plt.savefig('crime distribution')
-    return count
+    if crime_plot:
+        plt.style.use('ggplot')
+        fig, ax = plt.subplots(figsize=(12, 6))
+        ax.bar(range(len(counted_type)), counted_type.values(), align='center')
+        plt.xticks(range(len(counted_type)), counted_type.keys())
+        title = 'Crime distribution around '+house_name+' within the range of '+str(cutoff)+' miles'
+        plt.suptitle(title)
+        plt.savefig('crime distribution')
+    else:
+        pass
 
-# showing an example of this function
-house_data = pd.read_csv('../data/kc_house_data.csv')
-crime_data = pd.read_csv('../data/King_County_Sheriff_s_Office.csv')
-house_gps = house_gps = (crime_data.latitude[1561], crime_data.longitude[1561])
-crime_lats = list(crime_data.latitude)
-crime_lons = list(crime_data.longitude)
-crime_gps = list(zip(crime_lats,crime_lons))
-crime_type = list(crime_data['incident_type_primary'])
-house_name = 'House NO. 1561'
-count_house1561 = crime_count(house_gps, crime_gps, crime_type, house_name=house_name)
-print('Number of crime reports around ' + house_name +' is: ' + str(count_house1561))
+    return (count, dict(counted_type))
+
+
+if __name__ == "__main__":
+    # Create an example to show the functionality of the module, based on house 1561
+    HOUSE_DATA = pd.read_csv('../data/kc_house_data.csv')
+    CRIME_DATA = pd.read_csv('../data/King_County_Sheriff_s_Office.csv')
+    HOUSE_GPS = (HOUSE_DATA.lat[1561], HOUSE_DATA.long[1561])
+    CRIME_LATS = list(CRIME_DATA.latitude)
+    CRIME_LONS = list(CRIME_DATA.longitude)
+    CRIME_GPS = list(zip(CRIME_LATS, CRIME_LONS))
+    CRIME_TYPE = list(CRIME_DATA['incident_type_primary'])
+    HOUSE_NAME = 'House NO. 1561'
+    COUNT_HOUSE = crime_count(HOUSE_GPS, CRIME_GPS, CRIME_TYPE, house_name=HOUSE_NAME)
+    print('Number of crime reports around ' + HOUSE_NAME +' is: ' + str(COUNT_HOUSE))

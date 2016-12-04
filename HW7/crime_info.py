@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from geopy.distance import vincenty
 
 def crime_count(house_gps, crime_gps, crime_type,
-                cutoff=2.0, house_name='the house'):
+                cutoff=1.0, crime_plot=False, house_name='the house'):
     """
     Count and return numbers of crimes (int) reports around a specifc house gps corrdinates
     within the cutoff distance. the crime information are also grouped and
@@ -21,7 +21,8 @@ def crime_count(house_gps, crime_gps, crime_type,
     house_gps: list , default None, Latitude and Longtitude of the house
     crime_gps: tuple or list, default none, Latitudes and Longtitudes of the crime
     crime_type: list of strings, contains the types of crimes
-    cutoff: float, default 2.0, set up the rang for counting
+    cutoff: float, default 1.0 mile, set up the range for counting
+    crime_plot:
     house_name: string, default 'the house', contains the name of input house.
     """
 
@@ -42,14 +43,18 @@ def crime_count(house_gps, crime_gps, crime_type,
 
     #groupby the different types of crime
     counted_type = Counter(count_type)
-    plt.style.use('ggplot')
-    fig, ax = plt.subplots(figsize=(12, 6))
-    ax.bar(range(len(counted_type)), counted_type.values(), align='center')
-    plt.xticks(range(len(counted_type)), counted_type.keys())
-    title = 'Crime distribution around '+house_name+' within the range of '+str(cutoff)+' miles'
-    plt.suptitle(title)
-    plt.savefig('crime distribution')
-    return count
+    if crime_plot:
+        plt.style.use('ggplot')
+        fig, ax = plt.subplots(figsize=(12, 6))
+        ax.bar(range(len(counted_type)), counted_type.values(), align='center')
+        plt.xticks(range(len(counted_type)), counted_type.keys())
+        title = 'Crime distribution around '+house_name+' within the range of '+str(cutoff)+' miles'
+        plt.suptitle(title)
+        plt.savefig('crime distribution')
+    else:
+        pass
+
+    return (count, counted_type)
 
 
 if __name__ == "__main__":
