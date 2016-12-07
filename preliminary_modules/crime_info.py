@@ -9,12 +9,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from geopy.distance import vincenty
 
-def crime_count(house_gps, crime_gps, crime_type,
-                cutoff=1.0, crime_plot=False, house_name='the house'):
+def crime_count(house_gps, crime_gps, crime_type, cutoff=1.0, output_plot=False):
     """
     Count and return a int of numbers of crimes (int) reports and a dictionary of
     grouped crime types, around a specifc house gps corrdinates
-    within the cutoff distance. the crime information are also grouped and
+    within the cutoff distance. The crime information are also grouped and
     plotted as bar plot.
 
     Parameters
@@ -23,15 +22,14 @@ def crime_count(house_gps, crime_gps, crime_type,
     crime_gps: tuple or list, default none, Latitudes and Longtitudes of the crime
     crime_type: list of strings, contains the types of crimes
     cutoff: float, default 1.0 mile, set up the range for counting
-    crime_plot:
-    house_name: string, default 'the house', contains the name of input house.
+    output_plot: boolean, default False, decide if output a figure file of crimes
+                with different type
     """
 
     #count the total crime within the cutoff ranges
     count = 0
     count_type = []
-    crime_total = len(crime_gps)
-    for i in range(0, crime_total):
+    for i in range(0, len(crime_gps)):
         if np.isnan(crime_gps[i][0]) or np.isnan(crime_gps[i][1]):
             pass
         else:
@@ -41,16 +39,13 @@ def crime_count(house_gps, crime_gps, crime_type,
                 count_type.append(crime_type[i])
             else:
                 pass
-
     #groupby the different types of crime
-    counted_type = Counter(count_type)
-    if crime_plot:
-        plt.style.use('ggplot')
-        fig, ax = plt.subplots(figsize=(12, 6))
-        ax.bar(range(len(counted_type)), counted_type.values(), align='center')
-        plt.xticks(range(len(counted_type)), counted_type.keys())
-        ax.figure.autofmt_xdate()
-        title = 'Crime distribution around '+house_name+' within the range of '+str(cutoff)+' miles'
+    counted_type = dict(Counter(count_type))
+    # output_plot data
+    if output_plot:
+        ax = crime_plot(counted_type)
+        title = ('Crime Distribution Around The House Within '
+                    + str(cutoff) + ' Mile(s), In Past 5 Years')
         plt.suptitle(title)
         plt.savefig('crime distribution')
     else:
@@ -58,16 +53,25 @@ def crime_count(house_gps, crime_gps, crime_type,
 
     return (count, counted_type)
 
+def crime_plot(plot_d):
+    """
+    Create and return a bar plot from input crime data
 
-if __name__ == "__main__":
-    # Create an example to show the functionality of the module, based on house 1561
-    HOUSE_DATA = pd.read_csv('../data/kc_house_data.csv')
-    CRIME_DATA = pd.read_csv('../data/King_County_Sheriff_s_Office.csv')
-    HOUSE_GPS = (HOUSE_DATA.lat[1561], HOUSE_DATA.long[1561])
-    CRIME_LATS = list(CRIME_DATA.latitude)
-    CRIME_LONS = list(CRIME_DATA.longitude)
-    CRIME_GPS = list(zip(CRIME_LATS, CRIME_LONS))
-    CRIME_TYPE = list(CRIME_DATA['incident_type_primary'])
-    HOUSE_NAME = 'House NO. 1561'
-    COUNT_HOUSE = crime_count(HOUSE_GPS, CRIME_GPS, CRIME_TYPE, house_name=HOUSE_NAME)
-    print('Number of crime reports around ' + HOUSE_NAME +' is: ' + str(COUNT_HOUSE))
+    Parameter:
+    plot_d: dictionary, contains numbers (value) of grouped crimes(keys).
+    """
+    if sum(plot_d.values()) == 0.:
+        print('There is no crime reports around the house within the cutoff'
+                + ' distance in past 5 years')
+    else:
+        plot_dir = {k:v for k, v in plot_d.items() if v!=0.}
+        plt.style.use('ggplot')
+        fig, ax = plt.subplots(figsize=(12, 6))
+        ax.barh(range(len(plot_dir)), plot_dir.values(), align='center')
+        plt.yticks(range(len(plot_dir)), plot_dir.keys())
+        rects = ax.patches
+        for rect in rects:
+            length = rect.get_width()
+            ax.text(length  , rect.get_y() + rect.get_height()/2.,
+                    '%d' % int(length), ha='left', va='center')
+        return ax
