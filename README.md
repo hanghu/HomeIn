@@ -1,7 +1,6 @@
-# KingCountyHouseRateExploration
+# HomeIn
 
-The (insert cool name here) Tool looks  at housing prices and other housing data vs. crime rates.  
-The Tool will use visualization technology to allow users to pinpoint areas and analyze their statistics.
+HomeIn analyzes housing prices and other housing data vs. crime rates on a multiple-layered map interface.  This visualization technology allows users to pinpoint areas and analyze their specifications and statistics before making a decision on a home purchase.
 
 Project Directory
 
