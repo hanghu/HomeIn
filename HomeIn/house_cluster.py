@@ -4,7 +4,6 @@ import webbrowser
 import numpy as np
 import pandas as pd
 import folium
-import branca
 from folium import plugins
 import vincent
 from vincent import AxisProperties, PropertySet, ValueRef
@@ -26,9 +25,8 @@ def popup_text(iters, row):
 	
 	html = """
 		<h4> Crime Info within Neighborhood </h4><br>
-		<img src='file://' + os.path.realpath(TmpFig) alt="Crime Histogram" style="width:304px;height:228px;"> <br>
 		"""
-
+#<img src='file://' + os.path.realpath(TmpFig) alt="Crime Histogram" style="width:304px;height:228px;"> <br>
 	html = html + "Total Crimes: " + str(row['number of crimes']) + "<br>"
 	html = html + "Assault: " + str(row['Assault']) + "<br>"
 	html = html + "Breaking & Entering: " + str(row['Breaking & Entering']) + "<br>"
@@ -54,7 +52,7 @@ def popup_text(iters, row):
 	#BarPlot.axes[0].properties = ax
 	#folium.Vega(BarPlot, width = 300, height = 100).add_to(popup)
 
-	iframe = branca.element.IFrame(html = html, width = 500, height = 300)
+	iframe = folium.element.IFrame(html = html, width = 500, height = 300)
 	#BarFigure = folium.element.Figure()
 	#BarPlot.add_to(BarFigure)
 	#BarFigure.add_to(iframe)
@@ -74,10 +72,10 @@ def house_cluster(HouseData, HouseUrl):
 	house_map.save(HouseUrl)
 
 
-#Example
-#HOUSE_URL = 'House Cluster Map.html'
-#pd.set_option('display.max_columns', None)
-#
-#data = pd.read_csv("./Data/house_crime_data.csv", parse_dates=['date'])
-#house_cluster(data, HOUSE_URL);
-#webbrowser.open('file://' + os.path.realpath(HOUSE_URL), new=2)
+#sExample
+HOUSE_URL = 'House Cluster Map.html'
+pd.set_option('display.max_columns', None)
+
+data = pd.read_csv("../Data/house_crime_data.csv", parse_dates=['date'])
+house_cluster(data, HOUSE_URL);
+webbrowser.open('file://' + os.path.realpath(HOUSE_URL), new=2)
