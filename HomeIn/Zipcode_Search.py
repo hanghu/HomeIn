@@ -19,7 +19,7 @@ geolocator = Nominatim()
 
 #use recursion to find all zipcodes for data
 def geocode():
-    for item in locations[0:10]:
+    for item in locations:
         location = geolocator.reverse(item, timeout=10)
         x = location.address
         z = x.rsplit(', ', 1)
@@ -31,3 +31,12 @@ def geocode():
         sleep(1)
 geocode()
 
+#Showing example of one instance
+geolocator = Nominatim()
+location = geolocator.reverse("47.500626, -122.234039")
+x = location.address
+z = x.rsplit(', ', 1)
+r = z[0]
+s = r.rsplit(', ', 1)
+zipcode = s[1]
+zipcode
