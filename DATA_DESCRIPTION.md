@@ -40,3 +40,5 @@ Parent incident type
 * Sale data in one month
 * Sale data with limited Zip code
 
+## Complementary Data
+* House street view photos from Google Map API
