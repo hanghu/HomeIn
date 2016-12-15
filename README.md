@@ -155,3 +155,20 @@ Marker popups are used to show information on each house. By default, it will sh
 - **3. Crime heatmap layer.** Heatmap shows the incidence of crime for the past 5 years. The incidence of crime increases with the color change of heatmap (blue --> green --> yellow --> red). The layer is generated using folium.plugins.HeatMap.
 
 - **4. Combination of multiple layers.** This can simply be done using folium.LayerControl().
+
+----
+
+### Tutorial For Operating Map Demo
+
+The demo map can be found in '/Examples/Map.html'. Or use this [link](https://cdn.rawgit.com/hanghu/HomeIn/master/Examples/Map.html) to open the map in browser. The map contains 3 layers: house marker cluster layer, zipcode choropleth layer and crime heatmap layer. Use the view toggler on the top right corner of the map to display specific layers.
+
+----
+<img src="doc/Layers.png">
+----
+
+For the marker clusters, click each number cluster to zoom in until a single popup appears. Click this popup to show the house image, house info and crime info.
+For the zipcode choropleth, click each zipcode to zoom in and center the region of your interest. This also provides an popup showing the average house price in this zip code
+
+----
+<img src="doc/Popups.png">
+----
