@@ -1,7 +1,5 @@
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
+PACKAGES = find_packages()
 
 opts = dict(name='HomeIn',
             description='Exploration tool for previous house sales and crime rate in King County - a one-stop comp analysis.',
@@ -11,11 +9,10 @@ opts = dict(name='HomeIn',
                              'Layer 3: Choropleth map of house prices within each zip code.',
             license=open('LICENSE').read(),
             author='hanghu, jhp312, YangJiang89, MengyuanZoe',
-            packages=['HomeIn', 'HomeIn/tests'],
-            package_data={'savvy': ['Data/*.*']},
+            packages=PACKAGES,
+            package_data={'HomeIn': ['Data/*.*']},
             include_package_data=True
             )
-
 
 if __name__ == '__main__':
     setup(**opts)
