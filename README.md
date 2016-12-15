@@ -1,6 +1,6 @@
 #### HomeIn
 ----
-<img src="..doc/HomeIn.png">
+<img src="doc/HomeIn.png">
 ----
 HomeIn analyzes housing prices and other housing data vs. crime rates on a multiple-layered map interface.  This visualization technology allows users to pinpoint areas and analyze their specifications and statistics before making a decision on a home purchase.
 
