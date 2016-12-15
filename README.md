@@ -1,16 +1,16 @@
-### HomeIn
+## HomeIn
 ----
 <img src="doc/HomeIn.png">
 ----
-HomeIn provides an analysis tool for  housing data, prices, and crime rates on a multiple-layered map interface.  This visualization technology allows users to pinpoint areas and analyze their specifications and statistics before making a decision on a home purchase.  
-  
+HomeIn provides an analysis tool for  housing data, prices, and crime rates on a multiple-layered map interface.  This visualization technology allows users to pinpoint areas and analyze their specifications and statistics before making a decision on a home purchase.
+   
 With HomeIn, users will have  access to past sales and crime data.   
 ----
-## Necessary Packages and License Information
+### Necessary Packages and License Information
 ----
 All of the necessary implementations in this repository can be carried out using the following software.  All software is open source.
   
-Python packages:
+**Python packages:**
   
 - NumPy 1.11.1  
 - pandas 0.19.1  
