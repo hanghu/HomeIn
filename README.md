@@ -125,3 +125,13 @@ With the questions mostly concerning the users, the crime information around hou
 ####Step 4: Create Marker Popups
 
 ####Step 5: Create Map Layers and View Toggler
+
+3 different layers of map is generated with view toggler.The example for our case is in '/Examples/layer_map.ipynb '.  
+
+- **1. House marker cluster layer.** Each marker represents a house in our data set with image of the house from Google Maps API, information of house properties (price, living sqft etc.) and crime info for the past 5 years. The layer is generated using folium.MarkerCluster with personalized Popups.
+
+- **2. Zipcode vs. House Price layer.** Choropleth map shows average house price in each zipcode. The layer is generated using folium.Map.choropleth. Addtional interactive funtion is applied to popup average house price when clicking each zipcode. This is done by changing the source code in folium. 
+
+- **3. Crime heatmap layer.** Heatmap shows the incidence of crime for the past 5 years. The incidence of crime increases with the color change of heatmap (blue --> green --> yellow --> red). The layer is generated using folium.plugins.HeatMap.
+
+- **4. Combination of multiple layers.** This can simply be done using folium.LayerControl().
