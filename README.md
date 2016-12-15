@@ -124,19 +124,25 @@ With the questions mostly concerning the users, the crime information around hou
 
 Google Maps API is used to acquire street view photos of the houses by longitude/latitude GPS coordinates.To use Google Maps API, inividual needs to apply for a key which allows 25000 free inquiries per key per day. Extra inquiries will be charged. 
 
-- **1. Apply for a Google Maps API key.** Go to website: https://developers.google.com/maps/documentation/javascript/get-api-key. Fill your personal information and acquire the key.
+- **1. Apply for a Google Maps API key.** Go to [website](https://developers.google.com/maps/documentation/javascript/get-api-key). Fill your personal information and acquire the key.
 
 - **2. Define URL parameters.** In Google Maps API, static street view photos are defined with URL parameters in HTTP requests. The parameters include:
-        - Location (latitude, longitude)
-        - Size of image
-        - user key
-        - Compass heading of camera
-        - FOV
-        - Pitch (angle of camera in degrees).
-   With all parameters defined in the URL, the HTTP request will return a image. Example: https://maps.googleapis.com/maps/api/streetview?size=300x300&location=-47.33,122.00&pitch=10&key=USERKEY.
+  - Location (latitude, longitude)
+  - Size of image
+  - user key
+  - Compass heading of camera
+  - FOV
+  - Pitch (angle of camera in degrees).
+  With all parameters defined in the URL, the HTTP request will return a image. Example: https://maps.googleapis.com/maps/api/streetview?size=300x300&location=-47.33,122.00&pitch=10&key=USERKEY (open this URL in browser).
 
 
 ####Step 4: Create Marker Popups
+
+Marker popups are used to show information on each house. By default, it will show street view photo, house price and specifications, number of crimes in its neighborhood during the past 5 years. 
+
+- **1. Present each house as a marker on map.** Location of the marker is determined by longitute/latitute GPS coordinates. The logo for marker can be customized. At this stage, such customization can only be done in source code [house_cluster.py](https://github.com/hanghu/HomeIn/blob/master/HomeIn/house_cluster.py).
+
+- **2. Popups.** Popups appear after user click on the marker and contain house-related information. The information in the popup can be customized. However, at this stage, such customization can only be done in source code [house_cluster.py](https://github.com/hanghu/HomeIn/blob/master/HomeIn/house_cluster.py).
 
 ####Step 5: Create Map Layers and View Toggler
 
