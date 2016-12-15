@@ -9,7 +9,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from geopy.distance import vincenty
 
-def crime_count(house_gps, crime_gps, crime_type, cutoff=1.0, output_plot=False):
+def crime_count(house_gps, crime_gps, crime_type,
+                cutoff=1.0, output_plot=False, output_name="crime_distribution.png"):
     """
     Count and return a int of numbers of crimes (int) reports and a dictionary of
     grouped crime number, around a specifc house gps corrdinates
@@ -53,7 +54,7 @@ def crime_count(house_gps, crime_gps, crime_type, cutoff=1.0, output_plot=False)
         title = ('Crime Distribution Around The House Within '
                  + str(cutoff) + ' Mile(s), In Past 5 Years')
         plt.suptitle(title)
-        plt.savefig('crime distribution')
+        plt.savefig(output_name)
     else:
         pass
 
