@@ -45,17 +45,17 @@ HomeIn uses the MIT license.  The data and packages used are completely open sou
 
 ###Directory Summary
 
-**[Data](https://github.com/hanghu/HomeIn/tree/master/Data)** - All data used in analyses is accesible from the data folder.  The data is described in full in the DATA_DESCRIPTION.md document.
+**Data:** All data used in analyses is accesible from the data folder.  The data is described in full in the DATA_DESCRIPTION.md document.
 
-**[Examples](https://github.com/hanghu/HomeIn/tree/master/Examples)** - This folder contains iPython Notebook walkthroughs of how we cleaned up our data as well as basic examples of how to use each python package.  A demo of a final map is also included.
+**Examples:** This folder contains iPython Notebook walkthroughs of how we cleaned up our data as well as basic examples of how to use each python package.  A demo of a final map is also included.
 
-**[HomeIn](https://github.com/hanghu/HomeIn/tree/master/HomeIn)** - All python modules used in the project directory are found in this folder.  Unit tests are also included for testable modules.
+**HomeIn:** All python modules used in the project directory are found in this folder.  Unit tests are also included for testable modules.
 
-**[doc](https://github.com/hanghu/HomeIn/tree/master/doc)** - Documentation for the project is found in this folder.  This includes the project summary, HomeIn logo, and walkthroughs on how to make a map.
+**doc:** Documentation for the project is found in this folder.  This includes the project summary, HomeIn logo, and walkthroughs on how to make a map.
 
-**UsercaseExplication.md** - Use cases and scientific questions answered by the project.
+**UsercaseExplication.md:** Use cases and scientific questions answered by the project.
 
-**License.txt** - The  MIT license used for this project.  We thought that having open access to the data was important for multiple user bases. (i.e. real estate professionals, potential homeowners, etc.)
+**License.txt:** The  MIT license used for this project.  We thought that having open access to the data was important for multiple user bases. (i.e. real estate professionals, potential homeowners, etc.)
 
 ----
 
@@ -81,7 +81,7 @@ The package is organized as follows:
         |---Map.html  
         |---Zipcodes.ipynb  
         |---crime_info_usage.ipynb  
-        |---data_clean.ipynb  
+        |---data_preprocessing.ipynb  
         |---layer_map.ipynb  
     |---HomeIn  
         |---__init__.py  
@@ -104,12 +104,18 @@ The package is organized as follows:
 
 ----
 
-###Designing a Map
+###Tutorial For Generating An Interactive Map With Custom Parameters
 
 **Step 1: Download the Data**
-In our case
+
+The raw datasets are all open data from [Kaggle](https://www.kaggle.com/harlfoxem/housesalesprediction) or [King County Open Data](https://moto.data.socrata.com/dataset/King-County-Sheriff-s-Office/4h35-4mtu). The main columns of the data are the GPS coordinates of the house and crime incidents, crime type as well as house information including price, _etc._ The data used to generate the demo Map are described in detail in **DATA_DESCRIPTION.md**
 
 **Step 2: Geocode Crime Data and Merge with House Data**
+
+With the questions mostly concerning the users, the crime information around houses in the past a few years within the cutoff distance are generated and added to house data by three steps. The example in our case is in '/Examples/data_preprocessing.ipynb'.  
+1. Set a **year range**. In our case, we set the year range as the past 5 years before those houses are sold and drop all the crime data which are not in that time range.  
+2. Set a **cutoff distance**. The cutoff distance in our case is default as 1.0 mile. Plug in the gps corrdinates, house ids and crime type by the function _crime_info_output_ in module _crime_info_. This process might take a long time, in our case, it took 6.5h to generate all the crime data.
+3. Merge the crime data with house data based on their ids.  
 
 **Step 3: Obtain Google Maps API Key and Define URL Parameters**
 
