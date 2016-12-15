@@ -1,19 +1,17 @@
 ## HomeIn
 
 ----
+  
 <img src="doc/HomeIn.png">
-----
-
+  
 HomeIn provides an analysis tool for  housing data, prices, and crime rates on a multiple-layered map interface.  This visualization technology allows users to pinpoint areas and analyze their specifications and statistics before making a decision on a home purchase.
      
-With HomeIn, users will have  access to past sales and crime data.   
+With HomeIn, users will have  access to past sales and crime data.  This repository is intended to exist as both a place where home-buyers can compare their house price to others in the area, but also as a tool that GitHub users can edit and create similar maps for themselves.
 
 ----
 
 ### Necessary Packages and License Information
-
-----
-
+  
 All of the necessary implementations in this repository can be carried out using the following software.  All software is open source.
   
 **Python packages:**
@@ -43,6 +41,6 @@ HomeIn uses the MIT license.  The data and packages used are completely open sou
   
 **UsercaseExplication.md:** Use cases and scientific questions answered by the project.
   
-**License.txt:**  MIT license for this project.  We thought that having open access to the data was important for multiple user bases (i.e. real estate professionals, potential homeowners, etc.)
+**License.txt:** The  MIT license used for this project.  We thought that having open access to the data was important for multiple user bases. (i.e. real estate professionals, potential homeowners, etc.)
   
 ----
