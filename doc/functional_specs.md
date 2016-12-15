@@ -27,11 +27,13 @@ $ pip install folium
   
 **4. Install Pillow:**  
 $ pip install Pillow
+  
+----
 
-####Downloading Data:
+###Downloading the Data
   
 **1. Housing Data:**
-- The housing data for King County sales can be found at the following link **[KC_house_data](https://www.kaggle.com/harlfoxem/housesalesprediction)**.  The data is released under **[cc0: Public Domain License](https://creativecommons.org/publicdomain/zero/1.0/)**
+- The housing data for King County sales can be found at the following link **[KC_house_data](https://www.kaggle.com/harlfoxem/housesalesprediction)**.  The data is released under **[cc0: Public Domain License](https://creativecommons.org/publicdomain/zero/1.0/)**.
   
 **2. Crime Data:**
-- The crime data for King County 
+- The crime data for King County has been offered publically available by the King County Sheriff's Office at the following link **[KC_crime_data](https://moto.data.socrata.com/dataset/King-County-Sheriff-s-Office/4h35-4mtu)**. 
