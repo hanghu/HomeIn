@@ -106,19 +106,22 @@ The package is organized as follows:
 
 ###Tutorial For Generating An Interactive Map With Custom Parameters
 
-**Step 1: Download the Data**
+####Step 1: Download the Data
 
 The raw datasets are all open data from [Kaggle](https://www.kaggle.com/harlfoxem/housesalesprediction) or [King County Open Data](https://moto.data.socrata.com/dataset/King-County-Sheriff-s-Office/4h35-4mtu). The main columns of the data are the GPS coordinates of the house and crime incidents, crime type as well as house information including price, _etc._ The data used to generate the demo Map are described in detail in **DATA_DESCRIPTION.md**
 
-**Step 2: Geocode Crime Data and Merge with House Data**
+####Step 2: Geocode Crime Data and Merge with House Data
 
 With the questions mostly concerning the users, the crime information around houses in the past a few years within the cutoff distance are generated and added to house data by three steps. The example in our case is in '/Examples/data_preprocessing.ipynb'.  
-1. Set a **year range**. In our case, we set the year range as the past 5 years before those houses are sold and drop all the crime data which are not in that time range.  
-2. Set a **cutoff distance**. The cutoff distance in our case is default as 1.0 mile. Plug in the gps corrdinates, house ids and crime type by the function _crime_info_output_ in module _crime_info_. This process might take a long time, in our case, it took 6.5h to generate all the crime data.
-3. Merge the crime data with house data based on their ids.  
 
-**Step 3: Obtain Google Maps API Key and Define URL Parameters**
+- 1. Set a **year range**. In our case, we set the year range as the past 5 years before those houses are sold and drop all the crime data which are not in that time range.  
 
-**Step 4: Create Marker Popups**
+- 2. Set a **cutoff distance**. The cutoff distance in our case is default as 1.0 mile. Plug in the gps corrdinates, house ids and crime type by the function _crime_info_output_ in module _crime_info_. This process might take a long time, in our case, it took 6.5h to generate all the crime data.  
 
-**Step 5: Create Map Layers and View Toggler**
+- 3. Merge the crime data with house data based on their ids.  
+
+####Step 3: Obtain Google Maps API Key and Define URL Parameters
+
+####Step 4: Create Marker Popups
+
+####Step 5: Create Map Layers and View Toggler
