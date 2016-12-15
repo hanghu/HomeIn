@@ -116,7 +116,7 @@ With the questions mostly concerning the users, the crime information around hou
 
 - **1. Set a year range.** In our case, we set the year range as the past 5 years before those houses are sold and drop all the crime data which are not in that time range.  
 
-- **2. Set a **cutoff distance.** The cutoff distance in our case is default as 1.0 mile. Plug in the gps corrdinates, house ids and crime type by the function _crime_info_output_ in module _crime_info_. This process might take a long time, in our case, it took 6.5h to generate all the crime data.  
+- **2. Set a cutoff distance.** The cutoff distance in our case is default as 1.0 mile. Plug in the gps corrdinates, house ids and crime type by the function _crime_info_output_ in module _crime_info_. This process might take a long time, in our case, it took 6.5h to generate all the crime data.  
 
 - **3. Merge** the crime data with house data based on their ids.  
 
