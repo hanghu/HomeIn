@@ -19,6 +19,9 @@ All of the necessary implementations in this repository can be carried out using
 - folium 0.2.1  
 - Pillow 3.0.0  
 
+**Licensing info:  
+HomeIn uses the MIT license.  The data and packages used are completely open source.  We want to make  our code readily available  to be improved and utilized with suggestions and implemenations by our user base.  It is important the house photos are able to be edited, as they will not always provide a 100% accurate photo.  The MIT license for this project is descrived in full in **LICENSE.txt**.
+
 ----
 Project Directory
 
