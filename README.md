@@ -14,7 +14,7 @@ With HomeIn, users will have  access to past sales and crime data.  This reposit
   
 All of the necessary implementations in this repository can be carried out using the following software.  All software is open source.
   
-**Python packages:**
+####Python packages:
   
 - NumPy 1.11.1  
 - pandas 0.19.1  
@@ -23,7 +23,7 @@ All of the necessary implementations in this repository can be carried out using
 - folium 0.2.1  
 - Pillow 3.0.0  
   
-####How to Install Packages
+####Installing Packages:
   
 **1. Install numpy, pandas, and matplotlib:**  
 $ conda install numpy pandas matplotlib
@@ -37,7 +37,7 @@ $ pip install folium
 **4. Install Pillow:**  
 $ pip install Pillow
   
-**Licensing info:**
+####Licensing info:
   
 HomeIn uses the MIT license.  The data and packages used are completely open source.  We want to make  our code readily available  to be improved and utilized with suggestions and implemenations by our user base.  It is important the house photos are able to be edited, as they will not always provide a 100% accurate photo.  The MIT license for this project is descrived in full in **LICENSE.txt**.
 
