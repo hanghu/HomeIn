@@ -122,6 +122,20 @@ With the questions mostly concerning the users, the crime information around hou
 
 ####Step 3: Obtain Google Maps API Key and Define URL Parameters
 
+Google Maps API is used to acquire street view photos of the houses by longitude/latitude GPS coordinates.To use Google Maps API, inividual needs to apply for a key which allows 25000 free inquiries per key per day. Extra inquiries will be charged. 
+
+- **1. Apply for a Google Maps API key.** Go to website: https://developers.google.com/maps/documentation/javascript/get-api-key. Fill your personal information and acquire the key.
+
+- **2. Define URL parameters.** In Google Maps API, static street view photos are defined with URL parameters in HTTP requests. The parameters include:
+        - Location (latitude, longitude)
+        - Size of image
+        - user key
+        - Compass heading of camera
+        - FOV
+        - Pitch (angle of camera in degrees).
+   With all parameters defined in the URL, the HTTP request will return a image. Example: https://maps.googleapis.com/maps/api/streetview?size=300x300&location=-47.33,122.00&pitch=10&key=USERKEY.
+
+
 ####Step 4: Create Marker Popups
 
 ####Step 5: Create Map Layers and View Toggler
