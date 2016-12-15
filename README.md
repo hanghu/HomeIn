@@ -13,11 +13,6 @@ With HomeIn, users will have  access to past sales and crime data.  This reposit
 ### Necessary Packages and License Information
 
 All of the necessary implementations in this repository can be carried out using the following software.  All software is open source.
-<<<<<<< HEAD
-
-**Python packages:**
-
-=======
 
 ####Python packages:
 
@@ -41,8 +36,6 @@ $ pip install folium
 
 **4. Install Pillow:**  
 $ pip install Pillow
-
-----
 
 ####Licensing info:
 
