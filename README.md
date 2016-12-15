@@ -45,17 +45,17 @@ HomeIn uses the MIT license.  The data and packages used are completely open sou
 
 ###Directory Summary
 
-**Data:** All data used in analyses is accesible from the data folder.  The data is described in full in the DATA_DESCRIPTION.md document.
+**[Data](https://github.com/hanghu/HomeIn/tree/master/Data)** - All data used in analyses is accesible from the data folder.  The data is described in full in the DATA_DESCRIPTION.md document.
 
-**Examples:** This folder contains iPython Notebook walkthroughs of how we cleaned up our data as well as basic examples of how to use each python package.  A demo of a final map is also included.
+**[Examples](https://github.com/hanghu/HomeIn/tree/master/Examples)** - This folder contains iPython Notebook walkthroughs of how we cleaned up our data as well as basic examples of how to use each python package.  A demo of a final map is also included.
 
-**HomeIn:** All python modules used in the project directory are found in this folder.  Unit tests are also included for testable modules.
+**[HomeIn](https://github.com/hanghu/HomeIn/tree/master/HomeIn)** - All python modules used in the project directory are found in this folder.  Unit tests are also included for testable modules.
 
-**doc:** Documentation for the project is found in this folder.  This includes the project summary, HomeIn logo, and walkthroughs on how to make a map.
+**[doc](https://github.com/hanghu/HomeIn/tree/master/doc)** - Documentation for the project is found in this folder.  This includes the project summary, HomeIn logo, and walkthroughs on how to make a map.
 
-**UsercaseExplication.md:** Use cases and scientific questions answered by the project.
+**UsercaseExplication.md** - Use cases and scientific questions answered by the project.
 
-**License.txt:** The  MIT license used for this project.  We thought that having open access to the data was important for multiple user bases. (i.e. real estate professionals, potential homeowners, etc.)
+**License.txt** - The  MIT license used for this project.  We thought that having open access to the data was important for multiple user bases. (i.e. real estate professionals, potential homeowners, etc.)
 
 ----
 
