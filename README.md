@@ -1,4 +1,4 @@
-##HomeIn
+## HomeIn
 
 ----
 
@@ -14,7 +14,7 @@ With HomeIn, users will have  access to past sales and crime data.  This reposit
 
 All of the necessary implementations in this repository can be carried out using the following software.  All software is open source.
 
-####Python packages:
+#### Python packages:
 
 - NumPy 1.11.1  
 - pandas 0.19.1  
@@ -23,7 +23,7 @@ All of the necessary implementations in this repository can be carried out using
 - folium 0.2.1  
 - Pillow 3.0.0  
 
-####Installing Packages:
+#### Installing Packages:
 
 **1. Install numpy, pandas, and matplotlib:**  
 $ conda install numpy pandas matplotlib
@@ -37,13 +37,13 @@ $ pip install folium
 **4. Install Pillow:**  
 $ pip install Pillow
 
-####Licensing info:
+#### Licensing info:
 
 HomeIn uses the MIT license.  The data and packages used are completely open source.  We want to make  our code readily available  to be improved and utilized with suggestions and implemenations by our user base.  It is important the house photos are able to be edited, as they will not always provide a 100% accurate photo.  The MIT license for this project is descrived in full in **LICENSE.txt**.
 
 ----
 
-###Directory Summary
+### Directory Summary
 
 **Data:** All data used in analyses is accesible from the data folder.  The data is described in full in the DATA_DESCRIPTION.md document.
 
@@ -59,7 +59,7 @@ HomeIn uses the MIT license.  The data and packages used are completely open sou
 
 ----
 
-###Directory Structure
+### Directory Structure
 
 The package is organized as follows:
 
@@ -104,13 +104,13 @@ The package is organized as follows:
 
 ----
 
-###Tutorial For Generating An Interactive Map With Custom Parameters
+### Tutorial For Generating An Interactive Map With Custom Parameters
 
-####Step 1: Download the Data
+#### Step 1: Download the Data
 
 The raw datasets are all open data from [Kaggle](https://www.kaggle.com/harlfoxem/housesalesprediction) or [King County Open Data](https://moto.data.socrata.com/dataset/King-County-Sheriff-s-Office/4h35-4mtu). The main columns of the data are the GPS coordinates of the house and crime incidents, crime type as well as house information including price, _etc._ The data used to generate the demo Map are described in detail in **DATA_DESCRIPTION.md**
 
-####Step 2: Geocode Crime Data and Merge with House Data
+#### Step 2: Geocode Crime Data and Merge with House Data
 
 With the questions mostly concerning the users, the crime information around houses in the past a few years within the cutoff distance are generated and added to house data by three steps. The example in our case is in '/Examples/data_preprocessing.ipynb'.  
 
@@ -136,7 +136,7 @@ Google Maps API is used to acquire street view photos of the houses by longitude
   With all parameters defined in the URL, the HTTP request will return a image. Example: https://maps.googleapis.com/maps/api/streetview?size=300x300&location=-47.33,122.00&pitch=10&key=USERKEY (open this URL in browser).
 
 
-####Step 4: Create Marker Popups
+#### Step 4: Create Marker Popups
 
 Marker popups are used to show information on each house. By default, it will show street view photo, house price and specifications, number of crimes in its neighborhood during the past 5 years. 
 
@@ -144,7 +144,7 @@ Marker popups are used to show information on each house. By default, it will sh
 
 - **2. Popups.** Popups appear after user click on the marker and contain house-related information. The information in the popup can be customized. However, at this stage, such customization can only be done in source code [house_cluster.py](https://github.com/hanghu/HomeIn/blob/master/HomeIn/house_cluster.py).
 
-####Step 5: Create Map Layers and View Toggler
+#### Step 5: Create Map Layers and View Toggler
 
 3 different layers of map is generated with view toggler.The example for our case is in '/Examples/layer_map.ipynb '.  
 
